@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32e850a9-9093-439b-a955-71446b4c9de0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/swipedown.py" beforeDir="false" afterPath="$PROJECT_DIR$/swipedown.py" afterDir="false" />
-    </list>
+    <list default="true" id="32e850a9-9093-439b-a955-71446b4c9de0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

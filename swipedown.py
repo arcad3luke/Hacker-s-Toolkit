@@ -8,7 +8,7 @@ from disrupt.deny import ddos, deface
 from persist import pingClient as pc, pingServer as ps
 
 
-class main():
+class Main:
     home = ps.ip
     home_port = ps.port
     host = pc.ip
@@ -17,11 +17,11 @@ class main():
     f = open('target.json',"r")
     
     
-    def init():
+    def init:
         if __name__ == '__main__':
-            main()
+            Main()
     
-    def start(question):
+    def start(self, question):
         
         question = input('''
             Available methods of attack are as follows:

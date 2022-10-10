@@ -1,10 +1,11 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from bs4 import BeautifulSoup as bs
 import codecs
 import re
+
+from bs4 import BeautifulSoup as bs
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -18,13 +19,13 @@ wait.until(EC.url_to_be(val))
 if get_url == val:
     page_source = driver.page_source
 
-soup = bs(page_source,features="html.parser")
-keyword = input("Ener a keyword to find instances of in the article: ")
+soup = bs(page_source, features="html.parser")
+keyword = input("Enter a keyword to find instances of in the article: ")
 matches = soup.body.find_all(string=re.compile(keyword))
 len_match = len(matches)
 title = soup.title.text
 
-file = codecs.open('scraping.txt','a+')
+file = codecs.open('scraping.txt', 'a+')
 file.write(title + '\n')
 file.write("The following are all instances of your keyword:\n")
 count = 1

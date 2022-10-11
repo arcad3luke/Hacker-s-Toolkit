@@ -1,6 +1,8 @@
+import nmap3
+import json
+
+
 def nmapscanner():
-    import nmap3
-    import json
     nmap = nmap3.Nmap()
     target = input("Target: ")
     print("\nScanning, please wait: " + target)
@@ -17,6 +19,7 @@ def nmapscanner():
     print(json.dumps(dns_results, indent=4, sort_keys=True))
     print(json.dumps(version_results, indent=4, sort_keys=True))
     print(json.dumps(ports, indent=4, sort_keys=True))
+
 
 nmapscanner()
     

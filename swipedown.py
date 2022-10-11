@@ -1,8 +1,4 @@
-import os, sys, time
-import random as r
-import socket
 from inject import sqlInject, cssInject
-from scan import vulnScan
 from parameter import httpPollute
 from disrupt.deny import ddos, deface
 from persist import pingClient as pc, pingServer as ps
@@ -13,16 +9,10 @@ class Main:
     home_port = ps.port
     host = pc.ip
     hPort = pc.port
-    
-    f = open('target.json',"r")
-    
-    
-    def init:
-        if __name__ == '__main__':
-            Main()
-    
-    def start(self, question):
-        
+
+    f = open('target.json', "r")
+
+    def on_start(self, question):
         question = input('''
             Available methods of attack are as follows:
             1) Vuln Scan
@@ -32,13 +22,16 @@ class Main:
             5) Deface
             6) DDoS
             Select Attack Method: ''')
-        
+
         attacks = {
-            1:vulnScan(),
-            2:sqlInject(),
-            3:httpPollute(),
-            4:cssInject(),
-            5:deface(),
-            6:ddos()
+            1: sqlInject(),
+            2: httpPollute(),
+            3: cssInject(),
+            4: deface(),
+            5: ddos()
         }
         return attacks
+
+def init():
+    if __name__ == '__main__':
+        Main()

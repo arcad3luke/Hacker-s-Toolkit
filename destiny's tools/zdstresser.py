@@ -104,12 +104,6 @@ ID	Name	Type	Description
                 print(key, ":", value)
             print(str("\nSuccess! Executed: ") + response.url)
             counttwo += 1
-    elif concurrents == "0":
-        print("Value must be greater than 0!!")
-        exit()
-    elif concurrents > "5":  # you can set this to your maximum allowed in plan
-        print("Value must be less than 5!! ")
-        exit()
 
 
 def ddosperm():
@@ -208,6 +202,7 @@ ID	Name	Type	Description
     looper = 0
     while looper != 1:
         ddosloop()
+        print("\n\n\nBegin the countdown! You can dip out, this script will repeat the process ;)")
         time.sleep(3620)  # Set this to whatever your maximum boot time on zdstresser.net is + 20 seconds for latency
 
 

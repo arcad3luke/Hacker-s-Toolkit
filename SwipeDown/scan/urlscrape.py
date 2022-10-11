@@ -33,8 +33,7 @@ count = 1
 for i in matches:
     file.write(str(count) + '.' + i + '\n')
     file.write(re.search('/[A-Za-z]+:\/\/[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_:%&;\?\#\/.=]+/g').split('\n'))
+    file.write("The were " + str(len_match) + " matches found for your keyword:\n")
+    file.close()
     count += 1
-
-file.write("The were " + str(len_match) + " matches found for your keyword:\n")
-file.close()
 driver.quit()

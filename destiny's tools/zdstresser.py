@@ -134,7 +134,7 @@ ID	Name	Type	Description
     time.sleep(5)
     if int(concurrents) == 1:
         ddos()
-    elif int(concurrents) > 1:
+    elif 1 < int(concurrents) <= 5:
         for i in range(int(concurrents)):
             ddos()
 

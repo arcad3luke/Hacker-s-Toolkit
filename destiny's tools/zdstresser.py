@@ -104,12 +104,6 @@ ID	Name	Type	Description
                 print(key, ":", value)
             print(str("\nSuccess! Executed: ") + response.url)
             counttwo += 1
-    elif concurrents == "0":
-        print("Value must be greater than 0!!")
-        exit()
-    elif concurrents > "5":  # you can set this to your maximum allowed in plan
-        print("Value must be less than 5!! ")
-        exit()
 
 
 def ddosperm():

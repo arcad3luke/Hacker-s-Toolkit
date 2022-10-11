@@ -132,9 +132,7 @@ ID	Name	Type	Description
     print(str("\nSuccess! Executed: ") + response.url)
     print("\nSuccess! Executed on target!")
     time.sleep(5)
-    if int(concurrents) == 1:
-        ddos()
-    elif 1 < int(concurrents) <= 5:
+    if 1 < int(concurrents) <= 5:
         for i in range(int(concurrents)):
             ddos()
 

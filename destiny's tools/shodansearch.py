@@ -9,3 +9,6 @@ def shodansearcher():
         print('IP: {}'.format(result['ip_str']))
         print(result['data'])
         print('')
+
+
+shodansearcher()

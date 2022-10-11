@@ -202,6 +202,7 @@ ID	Name	Type	Description
     looper = 0
     while looper != 1:
         ddosloop()
+        print("\n\n\nNow we wait to rinse, and repeat!")
         time.sleep(3620)  # Set this to whatever your maximum boot time on zdstresser.net is + 20 seconds for latency
 
 

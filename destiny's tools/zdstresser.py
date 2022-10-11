@@ -126,7 +126,9 @@ ID	Name	Type	Description
     print("Executing...\n")
     response = requests.get(baseurl, params=payload)
     print("Checking response...")
-    print(json.dumps(response, indent=4, sort_keys=True))
+    for key, value in responsejson.items():
+        print(key, ":", value)
+    print(str("\nSuccess! Executed: ") + response.url)
     print("\nSuccess! Executed on target!")
     time.sleep(5)
     if int(concurrents) == 1:
@@ -262,8 +264,10 @@ ID	Name	Type	Description
         count = 0
         while count < 5:  # set count to maximum concurrents your plan allows
             response = requests.get(baseurl, params=payload)
+            responsejson = response.json()
             print("Checking response...")
-            print(json.dumps(response, indent=4, sort_keys=True))
+            for key, value in responsejson.items():
+                print(key, ":", value)
             print(str("\nSuccess! Executed: ") + response.url)
             count += 1
 

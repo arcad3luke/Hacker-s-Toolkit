@@ -24,3 +24,4 @@ class pingClient:
                 if not data:
                    break
                 conn.sendall(data)
+sd.pingClient()

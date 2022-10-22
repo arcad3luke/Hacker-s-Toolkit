@@ -1,7 +1,8 @@
+import pickle
 import socket
 import SwipeDown.SwipeDown.swipedown as sd
 
-class pingClient:
+def pingClient():
     
     Set = range(1, 255)
     port = range(0,65535)
@@ -12,7 +13,7 @@ class pingClient:
         'FTP':'ftp://',
         'SSH':'ssh://',
         'MAILTO':'mailto:'}
-    
+
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind((url_prefix, randomIP))
         s.listen()
@@ -24,4 +25,6 @@ class pingClient:
                 if not data:
                    break
                 conn.sendall(data)
-sd.pingClient()
+        with open('target.json', 'w'):
+            pickle.dump('target.json')
+pingClient()

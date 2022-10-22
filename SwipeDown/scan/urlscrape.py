@@ -7,9 +7,24 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
-
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
+
+def scrape(count=1):
+    driver.get("https://www.google.com/")
+    search = driver.find_element(by=By.NAME, value='q')
+    search.send_keys(re.compile('[A-Za-z0-9\-_]'))
+    search.send_keys(Keys.ENTER)
+
+    while count <= 100:
+        for i in matches:
+            file.write(str(count) + '.' + i + '\n')
+            file.write(re.search('/[A-Za-z]+:\/\/[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_:%&;\?\#\/.=]+/g').split('\n'))
+            file.write("The were " + str(len_match) + " matches found for your keyword:\n")
+            file.close()
+            count += 1
 val = input("Enter a url: ")
 wait = WebDriverWait(driver, 10)
 driver.get(val)
@@ -26,14 +41,6 @@ len_match = len(matches)
 title = soup.title.text
 
 file = codecs.open('scraping.txt', 'a+')
-file.write(title + '\n')
-file.write("The following are all instances of your keyword:\n")
-count = 1
 
-for i in matches:
-    file.write(str(count) + '.' + i + '\n')
-    count += 1
 
-file.write("The were " + str(len_match) + " matches found for your keyword:\n")
-file.close()
 driver.quit()

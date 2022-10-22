@@ -1,13 +1,11 @@
 import socket
-import swipedown as sd
+import SwipeDown.SwipeDown.swipedown as sd
 
 
-def pingServer():
-    host = '127.0.0.1'
-    hPort = 65432
-    
+def pingServer(host='localhost', port=65432):
+    ip = f'{host}:{port}'
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind(host, hPort)
+        s.bind(ip)
         s.listen()
         conn, addr = s.accept()
         with conn:
@@ -17,3 +15,4 @@ def pingServer():
                 if not data:
                     break
                 conn.sendall(data)
+sd.pingServer()

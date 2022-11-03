@@ -12,7 +12,7 @@ class Main:
     f = open('target.json', "r")
 
     # Menu function
-    def on_start(self, question):
+    def on_start(self):
         question = input('''
             Available methods of attack are as follows:\n
             1) Vuln Scan\n

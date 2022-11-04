@@ -1,6 +1,6 @@
 import pickle
 import socket
-import SwipeDown.SwipeDown.swipedown as sd
+from SwipeDown.SwipeDown import swipedown as sd
 
 def pingClient():
     
@@ -27,4 +27,4 @@ def pingClient():
                 conn.sendall(data)
         with open('target.json', 'w'):
             pickle.dump('target.json')
-pingClient()
+sd.pingClient()

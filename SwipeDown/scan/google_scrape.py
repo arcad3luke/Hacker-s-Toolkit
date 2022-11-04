@@ -153,15 +153,16 @@ htmltags = '<a>,' \
            '<wbr>'
 
 pull.find_all(htmltags)
-pull.encode('utf-8')
+decode = pull.encode('utf-8')
+
 
 # Append to query list
-search = queries.append(pull)
+search = queries.append(decode)
 
 # Print to array
-print(queries)
+print(search)
 
 # add to scraping.txt
 with open('scraping.txt', 'a') as f:
-    f.writelines(str(queries).encode('utf-8'))
+    f.writelines(search)
     f.close()

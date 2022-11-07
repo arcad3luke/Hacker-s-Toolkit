@@ -1,25 +1,10 @@
 import requests
-from bs4 import BeautifulSoup as bs
+import bs4
 
-KEYWORDS="admin | index of '/admin' | cpanel | admin login | admin.php"
+KEYWORDS = "admin | index of '/admin' | cpanel | admin login | admin.php"
 
-# Init query array
-queries = []
-
-# Construct query
-query = input("Enter search query: ")
-
-# URL to use
-url = f'https://www.google.com/search?&q={query}'
-
-# Fetch the page
-req = requests.get(url)
-
-# Yeet HTTP data from the interwebs and parse
-pull = bs(req.text, "html.parser")
-
-# Init HTML regex
-htmltags = '<a>,' \
+# HTML tags
+'''htmltags = '<a>,' \
            '<br>,' \
            '<hr>,' \
            '<h1>,' \
@@ -151,18 +136,20 @@ htmltags = '<a>,' \
            '<track>,' \
            '<video>,' \
            '<wbr>'
+'''
 
-pull.find_all(htmltags)
-decode = pull.encode('utf-8')
+url = f'https://www.google.com/search?q={KEYWORDS}'
+result = requests.get(url)
 
+soup = bs4.BeautifulSoup(result.text, 'html.parser')
 
-# Append to query list
-search = queries.append(decode)
+tags = soup.find_all()
 
-# Print to array
-print(search)
+print(soup)
 
-# add to scraping.txt
-with open('scraping.txt', 'a') as f:
-    f.writelines(search)
-    f.close()
+for tag in tags:
+    print(tag.getText())
+    print('---------')
+
+with open() as f:
+    f.writelines()

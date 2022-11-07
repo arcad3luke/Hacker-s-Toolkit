@@ -15,14 +15,15 @@ search = soup.find("div", class_='BNeawe').text
 
 count = 0
 
-while count <= 2:
+while count <= 1:
     for x in soup.find_all(limit=1):
+        count += 1
         if len(x.getText(strip=True)) == 0:
             x.extract()
         for tag in tags:
             print(tag.getText().split('\n'))
             print('---------')
-        count += 1
+
         with open('scraping.txt','a+') as f:
             f.writelines(search)
             f.close()

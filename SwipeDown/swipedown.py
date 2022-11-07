@@ -29,11 +29,11 @@ class Main:
         if ping:
             attacks = {
                 1: webscrape,
-                1: sqlInject,
-                2: httpPollute,
-                3: cssInject,
-                4: deface,
-                5: ddos
+                2: sqlInject,
+                3: httpPollute,
+                4: cssInject,
+                5: deface,
+                6: ddos
             }
 
             return attacks

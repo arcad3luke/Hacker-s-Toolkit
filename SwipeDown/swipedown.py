@@ -21,6 +21,7 @@ def menu(ping):
         7) Stress Test\n
         Select Attack Method: ''')
     yield question
+
     # Define menu options
     if ping:
         attacks = {

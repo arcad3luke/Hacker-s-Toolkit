@@ -1,7 +1,7 @@
 import socket
 import subprocess
 import os
-from persist import pingClient as pc
+from SwipeDown.SwipeDown.persist import pingClient as pc
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(pc.ip, pc.port)

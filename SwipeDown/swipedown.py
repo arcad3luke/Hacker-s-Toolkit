@@ -9,7 +9,7 @@ from SwipeDown.destiny import nmap, shodansearch, zdstresser
 
 
 # Menu function
-def on_start(ping):
+def menu(ping):
     question = input('''
         Available methods of attack are as follows:\n
         1) Web Scrape\n 
@@ -21,7 +21,7 @@ def on_start(ping):
         7) Stress Test\n
         Select Attack Method: ''')
     yield question
-
+    # Define menu options
     if ping:
         attacks = {
             1: webscrape,
@@ -32,20 +32,17 @@ def on_start(ping):
             6: deface,
             7: zdstresser
         }
-
         return attacks
-
 
 class Main:
     # Establish host/home vars
     ps.pingServer()
     ping = pc.pingClient()
 
-    # set the file to write info to
+    # Set the file to write info to
     f = open('target.json', "r")
     json.dump(ping, f)
-    on_start(ping)
-
+    menu(ping)
 
 # Start
 def init():

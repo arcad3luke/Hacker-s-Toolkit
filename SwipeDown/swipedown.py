@@ -2,47 +2,47 @@ import json
 
 from inject import sqlInject, cssInject
 from parameter import httpPollute
-from disrupt.deny import ddos, deface
+from disrupt.deny import deface
 from scan import google_scrape as webscrape
 from persist import pingClient as pc, pingServer as ps
+from SwipeDown.destiny import nmap, shodansearch, zdstresser
 
 
 # Menu function
-def on_start(ping):
+def menu(ping):
     question = input('''
         Available methods of attack are as follows:\n
-        1) Web Scrape & Scan\n
-        2) SQL Injection\n
-        3) HTTP Parameter Pollution\n
-        4) CSS Injection\n
-        5) Deface\n
-        6) DDoS\n
+        1) Web Scrape\n 
+        2) Nmap Scan\n
+        3) SQL Injection\n
+        4) HTTP Parameter Pollution\n
+        5) CSS Injection\n
+        6) Deface\n
+        7) Stress Test\n
         Select Attack Method: ''')
     yield question
-
+    # Define menu options
     if ping:
         attacks = {
             1: webscrape,
-            2: sqlInject,
-            3: httpPollute,
-            4: cssInject,
-            5: deface,
-            6: ddos
+            2: nmap,
+            3: sqlInject,
+            4: httpPollute,
+            5: cssInject,
+            6: deface,
+            7: zdstresser
         }
-
         return attacks
-
 
 class Main:
     # Establish host/home vars
     ps.pingServer()
     ping = pc.pingClient()
 
-    # set the file to write info to
+    # Set the file to write info to
     f = open('target.json', "r")
     json.dump(ping, f)
-    on_start(ping)
-
+    menu(ping)
 
 # Start
 def init():

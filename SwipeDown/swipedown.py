@@ -6,6 +6,7 @@ from disrupt.deny import ddos, deface
 from scan import google_scrape as webscrape
 from persist import pingClient as pc, pingServer as ps
 
+
 # Menu function
 def on_start(ping):
     question = input('''
@@ -39,7 +40,7 @@ class Main:
 
     # set the file to write info to
     f = open('target.json', "r")
-    json.dump(ping,f)
+    json.dump(ping, f)
     on_start(ping)
 
 

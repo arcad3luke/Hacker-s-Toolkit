@@ -42,6 +42,7 @@ class Main:
     json.dump(ping,f)
     on_start(ping)
 
+
 # Start
 def init():
     if __name__ == '__main__':

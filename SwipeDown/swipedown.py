@@ -2,10 +2,10 @@ import json
 
 from inject import sqlInject, cssInject
 from parameter import httpPollute
-from disrupt.deny import ddos, deface
+from disrupt.deny import deface
 from scan import google_scrape as webscrape
 from persist import pingClient as pc, pingServer as ps
-from SwipeDown.destiny import nmap
+from SwipeDown.destiny import nmap, shodansearch, zdstresser
 
 
 # Menu function
@@ -13,12 +13,12 @@ def on_start(ping):
     question = input('''
         Available methods of attack are as follows:\n
         1) Web Scrape\n 
-        2) Scan\n
+        2) Nmap Scan\n
         3) SQL Injection\n
         4) HTTP Parameter Pollution\n
         5) CSS Injection\n
         6) Deface\n
-        7) DDoS\n
+        7) Stress Test\n
         Select Attack Method: ''')
     yield question
 
@@ -30,7 +30,7 @@ def on_start(ping):
             4: httpPollute,
             5: cssInject,
             6: deface,
-            7: ddos
+            7: zdstresser
         }
 
         return attacks

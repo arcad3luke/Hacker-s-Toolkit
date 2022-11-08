@@ -1,9 +1,6 @@
 import socket
 
-def pingClient():
-    
-    Set = range(1, 255)
-    port = range(0,65535)
+def pingClient(Set = range(1,255), port = range(1,65535)):
     IP = f'{Set}.{Set}.{Set}.{Set}:{port}'
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:

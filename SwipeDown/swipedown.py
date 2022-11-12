@@ -1,10 +1,10 @@
 import json
 
-from inject import sqlInject, cssInject
-from parameter import httpPollute
-from disrupt.deny import deface
-from scan import google_scrape as webscrape
-from persist import pingClient as pc, pingServer as ps
+from Inject import sql, css
+from Parameter import httpPollute
+from Disrupt.Deny import deface
+from Scan import google_scrape as webscrape
+from Persist import pingClient as pc, pingServer as ps
 from SwipeDown.destiny import nmap, shodansearch, zdstresser
 
 

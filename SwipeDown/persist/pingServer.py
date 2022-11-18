@@ -1,5 +1,4 @@
 import socket
-import SwipeDown.SwipeDown.swipedown as sd
 
 
 def pingServer(host='localhost', port=65432):
@@ -15,4 +14,4 @@ def pingServer(host='localhost', port=65432):
                 if not data:
                     break
                 conn.sendall(data)
-sd.pingServer()
+pingServer()

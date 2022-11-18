@@ -1,10 +1,10 @@
 import socket
 
-def pingClient(Set = range(1,255), port = range(1,65535)):
+def pingClient(Set=range(1,255), port='65132'):
     IP = f'{Set}.{Set}.{Set}.{Set}:{port}'
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind(IP)
+        s.bind((tuple(IP)))
         s.listen()
         conn, addr = s.accept()
         with conn:

@@ -14,3 +14,5 @@ if __name__ == "__main__":
 
     with socketserver.TCPServer((HOST, PORT), TCPHandler) as server:
         server.serve_forever()
+        if server.timeout >= 300000:
+            server.shutdown()

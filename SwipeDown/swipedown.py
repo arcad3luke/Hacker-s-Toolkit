@@ -1,15 +1,31 @@
 import json
 
-from inject import sqlInject, cssInject
-from parameter import httpPollute
-from disrupt.deny import deface
-from scan import google_scrape as webscrape
-from persist import pingClient as pc, pingServer as ps
+from SwipeDown.SwipeDown.Inject import sql, css
+from Parameter import httpPollute
+from Disrupt.Deny import deface
+from Scan import google_scrape as webscrape
+from Persist import pingClient as pc, pingServer as ps
+from UI import UI
 from SwipeDown.destiny import nmap, shodansearch, zdstresser
 
 
-# Menu function
-def menu(ping):
+class Main:
+    # Establish host/home vars
+    ps.pingServer()
+    ping = pc.pingClient()
+    UI.UI()
+    # Set the file to write info to
+    f = open('target.json', "r")
+    json.dump(ping, f)
+
+
+# Start
+def init():
+    if __name__ == '__main__':
+        Main()
+
+# Old? Menu function
+"""def menu(ping):
     question = input('''
         Available methods of attack are as follows:\n
         1) Web Scrape\n 
@@ -34,18 +50,5 @@ def menu(ping):
             7: zdstresser
         }
         return attacks
+"""
 
-class Main:
-    # Establish host/home vars
-    ps.pingServer()
-    ping = pc.pingClient()
-
-    # Set the file to write info to
-    f = open('target.json', "r")
-    json.dump(ping, f)
-    menu(ping)
-
-# Start
-def init():
-    if __name__ == '__main__':
-        Main()

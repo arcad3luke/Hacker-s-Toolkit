@@ -6,7 +6,7 @@ from tkinter.ttk import *
 from SwipeDown.SwipeDown.Inject import sql, css
 from SwipeDown.SwipeDown.Parameter import httpPollute
 from SwipeDown.SwipeDown.Disrupt.Deny import deface
-from SwipeDown.SwipeDown.Scan import webscrape as webscrape
+from SwipeDown.SwipeDown.Scan import webscrape
 
 class UI(tkinter.Frame):
     def __init__(self, master=None):

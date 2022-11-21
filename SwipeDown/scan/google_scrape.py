@@ -1,6 +1,6 @@
 import requests
 import bs4
-from SwipeDown.SwipeDown.UI import UI
+# from SwipeDown.SwipeDown.UI import UI
 
 def webscrape():
     query = "allinurl: index of '/admin'"

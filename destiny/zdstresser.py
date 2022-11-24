@@ -2,6 +2,7 @@ import requests
 import time
 import json
 
+
 def main():
     print("""          _______  _        _______  _______  _______  _______ 
 |\     /|(  ____ \( \      (  ____ \(  ___  )(       )(  ____ \
@@ -19,6 +20,7 @@ def main():
         ddos()
     if choose == "2":
         ddosperm()
+
 
 def ddos():
     methodlist = """1	DNS	IPv4 (L3 ,L4)	Method based on Domain Name System, have bigest amplification power. Recomended for home connection, unprotected servers.

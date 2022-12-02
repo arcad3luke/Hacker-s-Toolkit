@@ -1,6 +1,8 @@
 #!/bin/env/python3
-import socket
+
 import socketserver
+
+global HOST, PORT
 
 class TCPHandler(socketserver.BaseRequestHandler):
     def handle(self):

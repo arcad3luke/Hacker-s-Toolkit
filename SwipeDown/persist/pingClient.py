@@ -1,10 +1,11 @@
 import socket
+from SwipeDown.SwipeDown.Utility.Shell import shell_client as shell
 
-def pingClient(Set=range(1,255), port='65132'):
-    IP = f'{Set}.{Set}.{Set}.{Set}:{port}'
+
+def pingClient(host = shell.host, port = shell.port):
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind((tuple(IP)))
+        s.bind((host, port))
         s.listen()
         conn, addr = s.accept()
         with conn:
@@ -14,6 +15,6 @@ def pingClient(Set=range(1,255), port='65132'):
                 if not data:
                    break
                 conn.sendall(data)
-        with open('target.json', 'w') as f:
+        with open('clients.json', 'w') as f:
             f.writelines(data)
 pingClient()

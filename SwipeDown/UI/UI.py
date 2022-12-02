@@ -10,18 +10,20 @@ from SwipeDown.SwipeDown.Scan import webscrape
 
 class UI(tkinter.Frame):
     def __init__(self, master=None):
+
         tkinter.Frame.__init__(self, master, padx=150, pady=150)
         self.grid()
         self.createWidgets()
 
     def openNewWindow(self):
+
         newWindow = Toplevel(master=None)
         newWindow.title('Sub-Menu')
         newWindow.geometry('200x200')
         Label(newWindow, text='Sub-menu for widget').pack()
 
-
     def createWidgets(self):
+
         # Initialize the Menu
         SwipeDown = tkinter.LabelFrame(self, name='options')
         headerLabel = tkinter.Label(self, text='SwipeDown Options:')
